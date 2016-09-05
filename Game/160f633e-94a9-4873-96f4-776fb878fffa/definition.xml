@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<game name="Street Wars" id="160f633e-94a9-4873-96f4-776fb878fffa" octgnVersion="3.1.0.0" version="1.0.0.0" 
+    markersize="25" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" tags="cards standard" description="I SAID HI NICK!" setsurl="http://www.octgn.net" 
+	gameurl="http://www.octgn.net" authors="brine, magnus, kelly elton" iconurl="https://raw.github.com/kellyelton/Standard-Playing-Cards-Octgn/master/src/images/icon.jpg" scriptVersion="3.1.0.1"
+	usetwosidedtable="False">
+    <scripts>
+      <script src="scripts/actions.py" />
+	  <script src="scripts/autoscript.py"/>
+    </scripts>
+    <proxygen definitionsrc="proxy/proxydef.xml">
+    </proxygen>
+    <globalvariables>
+        <globalvariable name="dealer" value="1"/>
+    </globalvariables>
+    <card back="cards/back.png" front="cards/front.png" width="126" height="176" cornerRadius="0">
+        <property name="Suit" type="String" textKind="Tokens" />
+        <property name="Rank" type="String" textKind="Tokens" />
+    </card>
+    <table name="Table" visibility="undefined" ordered="False" width="800" height="650" background="background/felt.png" backgroundStyle="uniformToFill">
+        <groupaction menu="Setup Game" shortcut="ctrl+shift+s" default="True" execute="Setup" />
+		<groupaction menu="Draw" shortcut="ctrl+D" default="True" execute="draw" />
+        <groupaction menu="Shuffle" shortcut="ctrl+S" execute="shuffle" />
+        <groupaction menu="Pass" shortcut="tab" execute="passturn" />
+        <cardaction menu="Turn card Sideways" default="True" execute="tap" />
+        <cardaction menu="Flip Card" shortcut="ctrl+f" execute="flip" />
+        <cardaction menu="Discard Card" shortcut="del" execute="discard" />
+        <cardaction menu="Add/Remove Red Highlight" shortcut="ctrl+A" execute="highlightcard" />
+		<cardactions menu="Add Token">
+			<cardaction menu="Add Scarlett" default="False" shortcut="F1" execute="addScarlett" />
+			<cardaction menu="Add Mickey" default="False" shortcut="F2" execute="addMickey" />
+			<cardaction menu="Add Tony" default="False" shortcut="F3" execute="addTony" />
+			<cardaction menu="Add Jack" default="False" shortcut="ctrl+1" execute="addJack" />
+			<cardaction menu="Add Marcel" default="False" shortcut="ctrl+2" execute="addMarcel" />
+			<cardaction menu="Add Stitches" default="False" shortcut="ctrl+3" execute="addStitches" />
+		</cardactions>
+		<cardactions menu="Remove Token">
+			<cardaction menu="Remove Scarlett" default="False" shortcut="F4" execute="subScarlett" />
+			<cardaction menu="Remove Mickey" default="False" shortcut="F5" execute="subMickey" />
+			<cardaction menu="Remove Tony" default="False" shortcut="F6" execute="subTony" />
+			<cardaction menu="Remove Jack" default="False" shortcut="ctrl+shift+1" execute="subJack" />
+			<cardaction menu="Remove Marcel" default="False" shortcut="ctrl+shift+2" execute="subMarcel" />
+			<cardaction menu="Remove Stitches" default="False" shortcut="ctrl+shift+3" execute="subStitches" />
+		</cardactions>
+		
+		
+    </table>
+<player>
+		<hand name="Hand" visibility="me" ordered="False" width="0" height="0" icon="Groups/Combat Hand.png">
+			<cardaction menu="ShootoutGoon" shortcut="ctrl+G" execute="PlayCardFaceDown" />
+			<cardaction menu="Discard Card" shortcut="del" execute="discard" />	
+		</hand>
+		<counter name="ManPower" default="0" reset="False" icon="counters/manpower.png" />
+		<counter name="Loot" default="0" reset="False" icon="counters/loot.png" />
+		<counter name="Respect" default="0" reset="False" icon="counters/respect.png" />
+		
+</player>
+  <shared>
+    <group name="Goons" shortcut="ctrl+E" visibility="none" width="126" height="176" icon="groups/deck.png">
+        <groupaction menu="Deal X Cards" default="True" execute="dealMany" />
+        <groupaction menu="Deal X Cards To Table" execute="dealManyToTable" />
+        <groupaction menu="Deal X Cards To Table(face down)" execute="dealManyToTableDown" />
+       <groupaction menu="Draw" shortcut="ctrl+D" execute="draw" />
+       <groupaction menu="Draw X Cards" shortcut="ctrl+shift+D" execute="drawMany" />
+       <groupaction menu="Draw X Cards Face Down" execute="drawManyDown" />
+       <groupaction menu="Send Top X Cards to the Discard Pile" execute="mill" />
+       <groupaction menu="Shuffle" shortcut="ctrl+S" execute="shuffle" />
+    </group>
+<group name="Rule" shortcut="ctrl+E" visibility="none" width="126" height="176" icon="groups/deck.png">
+        <groupaction menu="Deal X Cards" default="True" execute="dealMany" />
+        <groupaction menu="Deal X Cards To Table" execute="dealManyToTable" />
+        <groupaction menu="Deal X Cards To Table(face down)" execute="dealManyToTableDown" />
+       <groupaction menu="Draw" shortcut="ctrl+D" execute="draw" />
+       <groupaction menu="Draw X Cards" shortcut="ctrl+shift+D" execute="drawMany" />
+       <groupaction menu="Draw X Cards Face Down" execute="drawManyDown" />
+       <groupaction menu="Send Top X Cards to the Discard Pile" execute="mill" />
+       <groupaction menu="Shuffle" shortcut="ctrl+S" execute="shuffle" />
+    </group>
+<group name="Location" shortcut="ctrl+E" visibility="none" width="126" height="176" icon="groups/deck.png">
+        <groupaction menu="Deal X Cards" default="True" execute="dealMany" />
+        <groupaction menu="Deal X Cards To Table" execute="dealManyToTable" />
+        <groupaction menu="Deal X Cards To Table(face down)" execute="dealManyToTableDown" />
+       <groupaction menu="Draw" shortcut="ctrl+D" execute="draw" />
+       <groupaction menu="Draw X Cards" shortcut="ctrl+shift+D" execute="drawMany" />
+       <groupaction menu="Draw X Cards Face Down" execute="drawManyDown" />
+       <groupaction menu="Send Top X Cards to the Discard Pile" execute="mill" />
+       <groupaction menu="Shuffle" shortcut="ctrl+S" execute="shuffle" />
+    </group>
+<group name="Character" shortcut="ctrl+E" visibility="none" width="126" height="176" icon="groups/deck.png">
+        <groupaction menu="Deal X Cards" default="True" execute="dealMany" />
+        <groupaction menu="Deal X Cards To Table" execute="dealManyToTable" />
+        <groupaction menu="Deal X Cards To Table(face down)" execute="dealManyToTableDown" />
+       <groupaction menu="Draw" shortcut="ctrl+D" execute="draw" />
+       <groupaction menu="Draw X Cards" shortcut="ctrl+shift+D" execute="drawMany" />
+       <groupaction menu="Draw X Cards Face Down" execute="drawManyDown" />
+       <groupaction menu="Send Top X Cards to the Discard Pile" execute="mill" />
+       <groupaction menu="Shuffle" shortcut="ctrl+S" execute="shuffle" />
+    </group>
+<group name="Gang" shortcut="ctrl+E" visibility="none" width="126" height="176" icon="groups/deck.png">
+        <groupaction menu="Deal X Cards" default="True" execute="dealMany" />
+        <groupaction menu="Deal X Cards To Table" execute="dealManyToTable" />
+        <groupaction menu="Deal X Cards To Table(face down)" execute="dealManyToTableDown" />
+       <groupaction menu="Draw" shortcut="ctrl+D" execute="draw" />
+       <groupaction menu="Draw X Cards" shortcut="ctrl+shift+D" execute="drawMany" />
+       <groupaction menu="Draw X Cards Face Down" execute="drawManyDown" />
+       <groupaction menu="Send Top X Cards to the Discard Pile" execute="mill" />
+       <groupaction menu="Shuffle" shortcut="ctrl+S" execute="shuffle" />
+    </group>
+    <group name="Discard" shortcut="del" visibility="all" width="126" height="176" icon="groups/discardpile.png">
+       <groupaction menu="Shuffle" shortcut="ctrl+S" execute="shuffle" />
+       <groupaction menu="Shuffle Into Deck" execute="shuffleIntoDeck" />
+    </group>
+  </shared>
+  <sharedDeck>
+      <section name="Goons" group="Goons" />
+      <section name="Rule" group="Rule" />
+      <section name="Location" group="Location" />
+      <section name="Character" group="Character" />
+      <section name="Gang" group="Gang" />
+      <section name="Discard" group="Discard" />
+  </sharedDeck>
+</game>
