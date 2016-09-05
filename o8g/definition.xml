@@ -44,12 +44,14 @@
 		
     </table>
 <player>
-		<hand name="Hand" visibility="me" ordered="False" width="0" height="0" icon="Groups/Combat Hand.png" />
+		<hand name="Hand" visibility="me" ordered="False" width="0" height="0" icon="Groups/Combat Hand.png">
+			<cardaction menu="ShootoutGoon" shortcut="ctrl+G" execute="PlayCardFaceDown" />
+			<cardaction menu="Discard Card" shortcut="del" execute="discard" />	
+		</hand>
 		<counter name="ManPower" default="0" reset="False" icon="counters/manpower.png" />
 		<counter name="Loot" default="0" reset="False" icon="counters/loot.png" />
 		<counter name="Respect" default="0" reset="False" icon="counters/respect.png" />
-		<cardaction menu="ShootoutGoon" shortcut="ctrl+G" execute="Morph" />
-        <cardaction menu="Discard Card" shortcut="del" execute="discard" />	
+		
 </player>
   <shared>
     <group name="Goons" shortcut="ctrl+E" visibility="none" width="126" height="176" icon="groups/deck.png">
